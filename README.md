@@ -32,7 +32,7 @@ There are two projects in this sample.  Each needs to be separately registered i
 
 #### Register the TodoListService web API
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
 3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
@@ -43,7 +43,7 @@ There are two projects in this sample.  Each needs to be separately registered i
 
 #### Register the TodoListWebApp web app
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
 2. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
 3. Click on **App registrations** and choose **Add**.
@@ -53,7 +53,7 @@ There are two projects in this sample.  Each needs to be separately registered i
 7. On the same page, change the `Logout Url` property to `https://localhost:44322/Account/EndSession`.  This is the default single sign out URL for this sample. 
 7. From the Settings menu, choose **Keys** and add a key - select a key duration of either 1 year or 2 years. When you save this page, the key value will be displayed, copy and save the value in a safe location - you will need this key later to configure the project in Visual Studio - this key value will not be displayed again, nor retrievable by any other means, so please record it as soon as it is visible from the Azure Portal.
 8. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and type 'TodoListService' in the textbox. Then, click on  **Select Permissions** and select 'Access TodoListService'.
-9. Still in the Required Permissions panel, press Grant Permissions.
+9. Still in the Required Permissions panel, press **Grant Permissions**.
 
 ### Step 3:  Configure the sample to use your Azure AD tenant
 
@@ -206,5 +206,7 @@ First, in Visual Studio 2013 create an empty solution to host the  projects.  Th
 
 Finally, in the properties of the solution itself, set both projects as startup projects.
 
-Troubleshooting
-If you get the following error: Inner Exception : AADSTS65001: The user or administrator has not consented to use the application with ID *your app ID* named 'TodoListClient'. Send an interactive authorization request for this user and resource, then check that you have done bullet point 8 of Register the client app (TodoListClient-Headless)
+
+## Troubleshooting
+
+If you get the following error: Inner Exception : AADSTS70002: Error validating credentials. AADSTS65005: Misconfigured application. This could be due to one of the following: The client has not listed any permissions for 'XXXXX' in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant. Client app ID: <your_webclient_clientid>, then check that you have done bullet point 8 of Register the client app (TodoListWebApp)
