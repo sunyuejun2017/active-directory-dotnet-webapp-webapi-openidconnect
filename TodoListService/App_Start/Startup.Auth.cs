@@ -19,6 +19,9 @@ namespace TodoListService
                     Audience = ConfigurationManager.AppSettings["ida:Audience"],
                     Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
                     
+                     //If your application is registered on China Cloud, you need to add MetadataAddress Property.
+                    MetadataAddress = ConfigurationManager.AppSettings["ida:MetadataAddress"],
+                                   
                 });
         }
     }
