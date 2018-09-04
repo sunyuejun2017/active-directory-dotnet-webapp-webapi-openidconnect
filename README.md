@@ -53,6 +53,7 @@ There are two projects in this sample.  Each needs to be separately registered i
 7. On the same page, change the `Logout Url` property to `https://localhost:44322/Account/EndSession`.  This is the default single sign out URL for this sample. 
 7. From the Settings menu, choose **Keys** and add a key - select a key duration of either 1 year or 2 years. When you save this page, the key value will be displayed, copy and save the value in a safe location - you will need this key later to configure the project in Visual Studio - this key value will not be displayed again, nor retrievable by any other means, so please record it as soon as it is visible from the Azure Portal.
 8. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and type 'TodoListService' in the textbox. Then, click on  **Select Permissions** and select 'Access TodoListService'.
+9. Still in the Required Permissions panel, press Grant Permissions.
 
 ### Step 3:  Configure the sample to use your Azure AD tenant
 
@@ -204,3 +205,6 @@ First, in Visual Studio 2013 create an empty solution to host the  projects.  Th
 23. In `web.config` add this line in the `<system.web>` section: `<sessionState timeout="525600" />`.  This increases the ASP.Net session state timeout to it's maximum value so that access tokens and refresh tokens cache in session state aren't cleared after the default timeout of 20 minutes.
 
 Finally, in the properties of the solution itself, set both projects as startup projects.
+
+Troubleshooting
+If you get the following error: Inner Exception : AADSTS65001: The user or administrator has not consented to use the application with ID *your app ID* named 'TodoListClient'. Send an interactive authorization request for this user and resource, then check that you have done bullet point 8 of Register the client app (TodoListClient-Headless)
